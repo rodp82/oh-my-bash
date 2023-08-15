@@ -422,6 +422,14 @@ function prompt_dir {
   prompt_segment blue black '\w'
 }
 
+function prompt_aws_profile {
+  if [[ -z "${AWS_PROFILE}" ]]; then
+    prompt_segment red black "No AWS Profile"
+  else
+    prompt_segment magenta black "AWS:$AWS_PROFILE"
+  fi
+}
+
 # Status:
 # - was there an error
 # - am I root
@@ -557,12 +565,13 @@ function build_prompt {
   [[ ! -z ${AG_EMACS_DIR+x} ]] && prompt_emacsdir
   prompt_status
   #[[ -z ${AG_NO_HIST+x} ]] && prompt_histdt
-  [[ -z ${AG_NO_CONTEXT+x} ]] && prompt_context
+  # [[ -z ${AG_NO_CONTEXT+x} ]] && prompt_context
   if [[ ${OMB_PROMPT_SHOW_PYTHON_VENV-} ]]; then
     prompt_virtualenv
     prompt_pyenv
     prompt_condaenv
   fi
+  prompt_aws_profile
   prompt_dir
   prompt_git
   prompt_hg
