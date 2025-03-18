@@ -239,6 +239,20 @@ Some themes turn on it by default.  If you would like to turn it off, you may di
 OMB_PROMPT_SHOW_PYTHON_VENV=false
 ```
 
+#### Enable/disable Spack environment information
+
+To enable the Spack environment information in the prompt, please set the
+following shell variable in `~/.bashrc`:
+
+```bash
+OMB_PROMPT_SHOW_SPACK_ENV=true
+```
+
+If the theme supports it, the information of the currently active Spack
+environment will be shown.  If the theme you use does not support the Spack
+environment information, a pull request to add it is welcome.  See the `font`
+theme as an example implementation of including the Spack environment.
+
 #### Disable internal uses of `sudo`
 
 Some plugins of oh-my-bash internally use `sudo` when it is necessary.  However, this might clutter with the `sudo` log.  To disable the use of `sudo` by oh-my-bash, `OMB_USE_SUDO` can be set to `false` in `~/.bashrc`.
@@ -281,8 +295,8 @@ If you want to uninstall `oh-my-bash`, just run `uninstall_oh_my_bash` from the 
 
 ## Contributing
 
-Check out [`CONTRIBUTING.md`](Contributing.md) and also [Code of
-Conduct](`CODE_OF_CONDUCT.md`).
+Check out [`CONTRIBUTING.md`](CONTRIBUTING.md) and also [Code of
+Conduct](CODE_OF_CONDUCT.md).
 
 This project is initially ported from Oh My Zsh and Bash-it by `@nntoan` and
 has been developed in a community-driven way.  Most of the contributors are far
